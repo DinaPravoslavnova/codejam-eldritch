@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0 auto;
+    width: 100vw;
+    min-height: 100vh;
+    background-image: url('../assets/home.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Rubik Wet Paint';
+    font-weight: lighter;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 90vh;
+  }
+
+  .ancients {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-self: center;
+    width: 35%;
+  }
+
+  .ancients__h2,
+  .difficulty__h2,
+  .stage__text {
+    width: 100%;
+    color: rgb(240, 78, 78);
+    font-size: 34px;
+    text-align: center;
+}
+
+  .ancients__card {
+    width: 270px;
+    height: auto;
+    margin: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: .2s;
+    filter: invert(20%);
+  }
+
+  .ancients__card:hover {
+    transform: scale(1.07);
+    filter: invert(0%);
+  }
+
+  .ancients__card.active {
+    transform: scale(1.05);
+    filter: invert(0%);
+    border: 3px solid red;
+  }
+
+  .difficulty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 140px;
+  }
+
+  .button {
+    font-family: 'Rubik Wet Paint';
+    font-size: 32px;
+    font-weight: bold;
+    color: rgb(19, 18, 18);
+    background-color: #8f9291;
+    border-radius: 8px;
+    margin: 5px;
+    cursor: pointer;
+    transition: 500ms;
+  }
+
+  .difficulty__button_mix {
+    font-size: 40px;
+    font-weight: bolder;
+    border-radius: 12px;
+    padding: 12px;
+    margin-top: 40px;
+  }
+
+  .button:hover {
+    transform: scale(1.15);
+  }
+
+  .button.active {
+    background-color: rgb(240, 78, 78, 0.75);
+    transform: scale(1.15);
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 35%;
+  }
+   
+  .cards__tracker {
+    width: 100%;
+  }
+  
+  .cards__tracker_stage {
+    text-align: center;
+  }
+  
+  .dots {
+    display: flex;
+    justify-content: center;
+  }
+
+  .dot {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px 15px;
+    border-radius: 20px;
+    color: white;
+    font-size: 36px;
+  }
+  
+  .green {
+    background-color: #069636;
+  }
+  
+  .brown {
+    background-color: #7e6703;
+  }
+  
+  .blue {
+    background-color: #0a2ece;
+  }
+  
+  .cards__click {
+    position: relative;
+    width: 250px;
+    height: 360px;
+    margin: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 300ms;
+    background-image: url('../assets/mythicCardBackground.jpg');
+  }
+
+  .cards__next {
+    width: 250px;
+    height: 360px;
+    margin: 10px;
+    border-radius: 15px;
+    transition: 300ms;
+    border: solid rgb(19, 18, 18);
+    background-position: center;
+    background-size: 101%;
+    background-repeat: no-repeat;
+  }

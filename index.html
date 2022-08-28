@@ -4,9 +4,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Comforter&family=Rubik+Dirt&family=Rubik+Wet+Paint&family=Yomogi&display=swap" rel="stylesheet">
+    <link href="assets/favicon.ico" rel="shortcut icon" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Eldritch Horror</title>
 </head>
 <body>
+    <main class="wrapper">
+
+        <div class="ancients">
+            <h2 class="ancients__h2">Выбери Древнего, который укажет <br> схему Колоды Мифов</h2>
+            <img class="ancients__card" src="assets/Ancients/Azathoth.jpg" alt="Azathot" id="Azathoth">
+            <img class="ancients__card" src="assets/Ancients/Cthulthu.jpg" alt="Cthulthu" id="Cthulthu">
+            <img class="ancients__card" src="assets/Ancients/IogSothoth.jpg" alt="IogSothoth" id="IogSothoth">
+            <img class="ancients__card" src="assets/Ancients/ShubNiggurath.jpg" alt="ShubNiggurath" id="ShubNiggurath">    
+        </div>
+
+        <div class="difficulty">
+            <h2 class="difficulty__h2">Выбери уровень сложности <br> и замешай колоду</h2>
+            <button class="button difficulty__button_verylight">Очень лёгкий</button>
+            <button class="button difficulty__button_light">Лёгкий</button>
+            <button class="button difficulty__button_medium">Средний</button>
+            <button class="button difficulty__button_high">Высокий</button>
+            <button class="button difficulty__button_veryhigh">Очень высокий</button>
+            <button class="button difficulty__button_mix">Замешать колоду</button>   
+        </div>
+        
+        <div class="cards">
+            <div class="cards__tracker">
+                <div class="cards__tracker_stage">
+                    <span class="stage__text">Этап I</span>
+                    <div class="dots">
+                      <div class="dot green" id="dot1"></div>
+                      <div class="dot brown" id="dot2"></div>
+                      <div class="dot blue" id="dot3"></div>
+                    </div>
+                </div>
+                <div class="cards__tracker_stage">
+                    <span class="stage__text">Этап II</span>
+                    <div class="dots">
+                      <div class="dot green" id="dot4"></div>
+                      <div class="dot brown" id="dot5"></div>
+                      <div class="dot blue" id="dot6"></div>
+                    </div>
+                </div>
+                <div class="cards__tracker_stage">
+                    <span class="stage__text">Этап III</span>
+                    <div class="dots">
+                      <div class="dot green" id="dot7"></div>
+                      <div class="dot brown" id="dot8"></div>
+                      <div class="dot blue" id="dot9"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="cards__click">
+            </div>
+            <div class="cards__next">
+            </div>  
+        </div>
+    </main>
+    <script type="module" src="js/script.js"></script>
     
 </body>
 </html>
