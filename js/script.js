@@ -28,7 +28,6 @@ const dot9 = document.getElementById('dot9');
 let dot9Value;
 
 let difficultyLevel = undefined;
-let ancient = undefined;
 
 azathoth.addEventListener('click', function() {
   setTracker(0);
@@ -36,7 +35,6 @@ azathoth.addEventListener('click', function() {
   cthulthu.classList.remove('active');
   iogSothoth.classList.remove('active');
   shubNiggurath.classList.remove('active');
-  ancient = "azathoth";
 });
 cthulthu.addEventListener('click', function() {
   setTracker(1);
@@ -44,8 +42,6 @@ cthulthu.addEventListener('click', function() {
   azathoth.classList.remove('active');
   iogSothoth.classList.remove('active');
   shubNiggurath.classList.remove('active');
-  ancient = "cthulthu";
-
 });
 iogSothoth.addEventListener('click', function() {
   setTracker(2);
@@ -53,17 +49,14 @@ iogSothoth.addEventListener('click', function() {
   azathoth.classList.remove('active');
   cthulthu.classList.remove('active');
   shubNiggurath.classList.remove('active');
-  ancient = "iogSothoth";
-
-});
+ });
 shubNiggurath.addEventListener('click', function() {
   setTracker(3);
   shubNiggurath.classList.add('active');
   azathoth.classList.remove('active');
   cthulthu.classList.remove('active');
   iogSothoth.classList.remove('active');
-  ancient = "shubNiggurath";
-});
+ });
 
 function setTracker(ancient) {
 
@@ -94,7 +87,6 @@ function setTracker(ancient) {
   dot9Value = ancientsData[ancient].thirdStage.blueCards;
   dot9.textContent = dot9Value;
 
-  ancient = undefined;
   buttonVeryLight.classList.remove("active");
   buttonLight.classList.remove("active");
   buttonMedium.classList.remove("active");
@@ -286,11 +278,7 @@ arrayFirstStage.sort(cardsMix);
 
 arrayCards = arrayThirdStage.concat(arraySecondStage).concat(arrayFirstStage);
 
-ancient = undefined;
 difficultyLevel = undefined;
-
-
-console.log(arrayCards);
 
 };
 
@@ -353,3 +341,16 @@ buttonDemonstration.addEventListener("click", function () {
   }
   
 });
+
+
+console.log(
+    "Score: 105 / 105\n\n",
+
+  " [+20] На выбор предоставляются 4 карты Древних\n",
+  " [+25] На выбор предоставляются 5 уровней сложности\n",
+  " [+40] Карты замешиваются согласно правилам игры\n",
+  " [+20] Есть трекер текущего состояния колоды\n\n",
+
+  "Discord:\n",
+  "Dina#2071\n", "https://discordapp.com/users/981128266633052190\n"
+);
