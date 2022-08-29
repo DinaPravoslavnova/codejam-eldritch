@@ -175,133 +175,133 @@ const cardsData = [
       },
       {
         id: 'brown18',
-        cardFace: 'url("./assets/MythicCards/brown/brown18.jpg")',
+        src: 'url("./assets/MythicCards/brown/brown18.jpg")',
         difficulty: 'normal',
         color:'brown'
       },
       {
         id: 'brown19',
-        cardFace: 'url("./assets/MythicCards/brown/brown19.jpg")',
+        src: 'url("./assets/MythicCards/brown/brown19.jpg")',
         difficulty: 'normal',
         color:'brown'
       },
       {
         id: 'brown20',
-        cardFace: 'url("./assets/MythicCards/brown/brown20.jpg")',
+        src: 'url("./assets/MythicCards/brown/brown20.jpg")',
         difficulty: 'normal',
         color:'brown'
       },
       {
         id: 'brown21',
-        cardFace: 'url("./assets/MythicCards/brown/brown21.jpg")',
+        src: 'url("./assets/MythicCards/brown/brown21.jpg")',
         difficulty: 'easy',
         color:'brown'
       },
       {
         id: 'green1',
-        cardFace: 'url("./assets/MythicCards/green/green1.jpg")',
+        src: 'url("./assets/MythicCards/green/green1.jpg")',
         difficulty: 'easy',
         color:'green'
       },
       {
         id: 'green2',
-        cardFace: 'url("./assets/MythicCards/green/green2.jpg")',
+        src: 'url("./assets/MythicCards/green/green2.jpg")',
         difficulty: 'hard',
         color:'green'
       },
       {
         id: 'green3',
-        cardFace: 'url("./assets/MythicCards/green/green3.jpg")',
+        src: 'url("./assets/MythicCards/green/green3.jpg")',
         difficulty: 'hard',
         color:'green'
       },
       {
         id: 'green4',
-        cardFace: 'url("./assets/MythicCards/green/green4.jpg")',
+        src: 'url("./assets/MythicCards/green/green4.jpg")',
         difficulty: 'hard',
         color:'green'
       },
       {
         id: 'green5',
-        cardFace: 'url("./assets/MythicCards/green/green5.jpg")',
+        src: 'url("./assets/MythicCards/green/green5.jpg")',
         difficulty: 'hard',
         color:'green'
       },
       {
         id: 'green6',
-        cardFace: 'url("./assets/MythicCards/green/green6.jpg")',
+        src: 'url("./assets/MythicCards/green/green6.jpg")',
         difficulty: 'hard',
         color:'green'
       },
       {
         id: 'green7',
-        cardFace: 'url("./assets/MythicCards/green/green7.jpg")',
+        src: 'url("./assets/MythicCards/green/green7.jpg")',
         difficulty: 'normal',
         color:'green'
       },
       {
         id: 'green8',
-        cardFace: 'url("./assets/MythicCards/green/green8.jpg")',
+        src: 'url("./assets/MythicCards/green/green8.jpg")',
         difficulty: 'normal',
         color:'green'
       },
       {
         id: 'green9',
-        cardFace: 'url("./assets/MythicCards/green/green9.jpg")',
+        src: 'url("./assets/MythicCards/green/green9.jpg")',
         difficulty: 'normal',
         color:'green'
       },
       {
         id: 'green10',
-        cardFace: 'url("./assets/MythicCards/green/green10.jpg")',
+        src: 'url("./assets/MythicCards/green/green10.jpg")',
         difficulty: 'normal',
         color:'green'
       },
       {
         id: 'green11',
-        cardFace: 'url("./assets/MythicCards/green/green11.jpg")',
+        src: 'url("./assets/MythicCards/green/green11.jpg")',
         difficulty: 'normal',
         color:'green'
       },
       {
         id: 'green12',
-        cardFace: 'url("./assets/MythicCards/green/green12.jpg")',
+        src: 'url("./assets/MythicCards/green/green12.jpg")',
         difficulty: 'easy',
         color:'green'
       },
       {
         id: 'green13',
-        cardFace: 'url("./assets/MythicCards/green/green13.jpg")',
+        src: 'url("./assets/MythicCards/green/green13.jpg")',
         difficulty: 'normal',
         color:'green'
       },
       {
         id: 'green14',
-        cardFace: 'url("./assets/MythicCards/green/green14.jpg")',
+        src: 'url("./assets/MythicCards/green/green14.jpg")',
         difficulty: 'normal',
         color:'green'
       },
       {
         id: 'green15',
-        cardFace: 'url("./assets/MythicCards/green/green15.jpg")',
+        src: 'url("./assets/MythicCards/green/green15.jpg")',
         difficulty: 'normal',
         color:'green'
       },
       {
         id: 'green16',
-        cardFace: 'url("./assets/MythicCards/green/green16.jpg")',
+        src: 'url("./assets/MythicCards/green/green16.jpg")',
         difficulty: 'easy',
         color:'green'
       },
       {
         id: 'green17',
-        cardFace: 'url("./assets/MythicCards/green/green17.jpg")',
+        src: 'url("./assets/MythicCards/green/green17.jpg")',
         difficulty: 'easy',
         color:'green'
       },
       {
         id: 'green18',
-        cardFace: 'url("./assets/MythicCards/green/green18.jpg")',
+        src: 'url("./assets/MythicCards/green/green18.jpg")',
         difficulty: 'easy',
         color:'green'
       }

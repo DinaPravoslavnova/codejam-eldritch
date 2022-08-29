@@ -1,6 +1,7 @@
 // Древние и трекер
 
 import ancientsData from './ancients.js';
+import cardsData from './cards.js';
 
 const azathoth = document.getElementById('Azathoth');
 const cthulthu = document.getElementById('Cthulthu');
@@ -26,6 +27,8 @@ let dot8Value;
 const dot9 = document.getElementById('dot9');
 let dot9Value;
 
+let difficultyLevel = undefined;
+
 azathoth.addEventListener('click', function() {
   setTracker(0);
   azathoth.classList.add('active');
@@ -46,14 +49,14 @@ iogSothoth.addEventListener('click', function() {
   azathoth.classList.remove('active');
   cthulthu.classList.remove('active');
   shubNiggurath.classList.remove('active');
-});
+ });
 shubNiggurath.addEventListener('click', function() {
   setTracker(3);
   shubNiggurath.classList.add('active');
   azathoth.classList.remove('active');
   cthulthu.classList.remove('active');
   iogSothoth.classList.remove('active');
-});
+ });
 
 function setTracker(ancient) {
 
@@ -84,6 +87,13 @@ function setTracker(ancient) {
   dot9Value = ancientsData[ancient].thirdStage.blueCards;
   dot9.textContent = dot9Value;
 
+  buttonVeryLight.classList.remove("active");
+  buttonLight.classList.remove("active");
+  buttonMedium.classList.remove("active");
+  buttonHigh.classList.remove("active");
+  buttonVeryHigh.classList.remove("active");
+  buttonCardNext.style.backgroundImage = "";
+
 }
 
 // выбор кнопок уровня сложности
@@ -94,15 +104,14 @@ const buttonMedium = document.querySelector(".difficulty__button_medium");
 const buttonHigh = document.querySelector(".difficulty__button_high");
 const buttonVeryHigh = document.querySelector(".difficulty__button_veryhigh");
 
-let difficulty;
-
 buttonVeryLight.addEventListener("click", function () {
   buttonVeryLight.classList.add("active");
   buttonLight.classList.remove("active");
   buttonMedium.classList.remove("active");
   buttonHigh.classList.remove("active");
   buttonVeryHigh.classList.remove("active");
-  difficulty = "very_light";
+  difficultyLevel = "very_light";
+  сardNext.style.backgroundImage = "";
 
 });
 
@@ -112,7 +121,8 @@ buttonLight.addEventListener("click", function () {
   buttonMedium.classList.remove("active");
   buttonHigh.classList.remove("active");
   buttonVeryHigh.classList.remove("active");
-  difficulty = "light";
+  difficultyLevel = "light";
+  сardNext.style.backgroundImage = "";
 
 });
 
@@ -122,7 +132,8 @@ buttonMedium.addEventListener("click", function () {
   buttonLight.classList.remove("active");
   buttonHigh.classList.remove("active");
   buttonVeryHigh.classList.remove("active");
-  difficulty = "medium";
+  difficultyLevel = "medium";
+  сardNext.style.backgroundImage = "";
 
 });
 
@@ -132,7 +143,8 @@ buttonHigh.addEventListener("click", function () {
   buttonLight.classList.remove("active");
   buttonMedium.classList.remove("active");
   buttonVeryHigh.classList.remove("active");
-  difficulty = "high";
+  difficultyLevel = "high";
+  сardNext.style.backgroundImage = "";
 
 });
 
@@ -142,7 +154,8 @@ buttonVeryHigh.addEventListener("click", function () {
   buttonLight.classList.remove("active");
   buttonMedium.classList.remove("active");
   buttonHigh.classList.remove("active");
-  difficulty = "very_high";
+  difficultyLevel = "very_high";
+  сardNext.style.backgroundImage = "";
 
 });
 
@@ -152,13 +165,192 @@ const buttonMix = document.querySelector(".difficulty__button_mix");
 
 buttonMix.addEventListener("click", function () {
   buttonMix.classList.add("active");
+  mix();
 });
 
 const buttonCardClick = document.querySelector(".cards__click");
 const buttonCardNext = document.querySelector(".cards__next");
 
+let arrayCards = [];
+
+function mix () {
+  let arrayBlue = [];
+  let arrayBrown = [];
+  let arrayGreen = [];
+  let arrayBrownNormal = [];
+  let arrayGreenNormal = [];
+
+  let arrayFirstStage = [];
+  let arraySecondStage = [];
+  let arrayThirdStage = [];
+
+if (difficultyLevel === "medium") {
+  cardsData.forEach(card => {
+    if (card.color === "blue") {
+      arrayBlue.push(card);
+    } else if (card.color === "brown") {
+      arrayBrown.push(card);
+    } else {
+      arrayGreen.push(card);
+    }  
+  });
+} else if (difficultyLevel === "light") {
+  cardsData.forEach(card => {
+    if (card.color === "blue" && card.difficulty != "hard") {
+      arrayBlue.push(card);
+    } else if (card.color === "brown" && card.difficulty != "hard") {
+      arrayBrown.push(card);
+    } else if (card.color === "green" && card.difficulty != "hard") {
+      arrayGreen.push(card);
+    }
+  });
+} else if (difficultyLevel === "high") {
+  cardsData.forEach(card => {
+    if (card.color === "blue" && card.difficulty != "easy") {
+      arrayBlue.push(card);
+    } else if (card.color === "brown" && card.difficulty != "easy") {
+      arrayBrown.push(card);
+    } else if (card.color === "green" && card.difficulty != "easy") {
+      arrayGreen.push(card);
+    }
+  });
+} else if (difficultyLevel === "very_light") {
+  cardsData.forEach(card => {
+    if (card.color === "blue" && card.difficulty === "easy") {
+      arrayBlue.push(card);
+    } else if (card.color === "brown" && card.difficulty === "easy") {
+      arrayBrown.push(card);
+    } else if (card.color === "brown" && card.difficulty === "normal") {
+      arrayBrownNormal.push(card);
+    } else if (card.color === "green" && card.difficulty === "easy") {
+      arrayGreen.push(card);
+    } else if (card.color === "green" && card.difficulty === "normal") {
+      arrayGreenNormal.push(card);
+    }
+  });
+
+  if (arrayBrown.length < dot2Value + dot5Value + dot8Value) {
+    arrayBrown = arrayBrown.concat(arrayBrownNormal.sort(cardsMix).slice(0, dot2Value + dot5Value + dot8Value - arrayBrown.length));
+  }
+
+  if (arrayGreen.length < dot1Value + dot4Value + dot7Value) {
+    arrayGreen = arrayGreen.concat(arrayGreenNormal.sort(cardsMix).slice(0, dot1Value + dot4Value + dot7Value - arrayGreen.length));
+  }
+} else if (difficultyLevel === "very_high") {
+  cardsData.forEach(card => {
+    if (card.color === "blue" && card.difficulty === "hard") {
+      arrayBlue.push(card);
+    } else if (card.color === "brown" && card.difficulty === "hard") {
+      arrayBrown.push(card);
+    } else if (card.color === "brown" && card.difficulty === "normal") {
+      arrayBrownNormal.push(card);
+    } else if (card.color === "green" && card.difficulty === "hard") {
+      arrayGreen.push(card);
+    } else if (card.color === "green" && card.difficulty === "normal") {
+      arrayGreenNormal.push(card);
+    }
+  });
+
+  if (arrayBrown.length < dot2Value + dot5Value + dot8Value) {
+    arrayBrown = arrayBrown.concat(arrayBrownNormal.sort(cardsMix).slice(0, dot2Value + dot5Value + dot8Value - arrayBrown.length));
+  }
+  if (arrayGreen.length < dot1Value + dot4Value + dot7Value) {
+    arrayGreen = arrayGreen.concat(arrayGreenNormal.sort(cardsMix).slice(0, dot1Value + dot4Value + dot7Value - arrayGreen.length));
+  }
+}
 
 
+function cardsMix(a, b) {
+  return 0.5 - Math.random();
+}
+
+arrayBlue.sort(cardsMix);
+arrayBrown.sort(cardsMix);
+arrayGreen.sort(cardsMix);
+
+arrayThirdStage = arrayBlue.slice(0, dot9Value).concat(arrayBrown.slice(0, dot8Value)).concat(arrayGreen.slice(0, dot7Value));
+arraySecondStage = arrayBlue.slice(dot9Value, dot9Value + dot6Value).concat(arrayBrown.slice(dot8Value, dot8Value + dot5Value)).concat(arrayGreen.slice(dot7Value, dot7Value + dot4Value));
+arrayFirstStage = arrayBlue.slice(dot9Value + dot6Value, dot9Value + dot6Value + dot3Value).concat(arrayBrown.slice(dot8Value + dot5Value, dot8Value + dot5Value  + dot2Value)).concat(arrayGreen.slice(dot7Value + dot4Value, dot7Value + dot4Value + dot1Value));
+
+arrayThirdStage.sort(cardsMix);
+arraySecondStage.sort(cardsMix);
+arrayFirstStage.sort(cardsMix);
+
+arrayCards = arrayThirdStage.concat(arraySecondStage).concat(arrayFirstStage);
+
+difficultyLevel = undefined;
+
+};
+
+// демонстрация карт, обновление трекера
+
+const сardNext = document.querySelector(".cards__next");
+const buttonDemonstration = document.querySelector(".cards__click");
+
+buttonDemonstration.addEventListener("click", function () {
+  if (arrayCards.length > 0) {
+    сardNext.style.backgroundImage = arrayCards[arrayCards.length - 1].src;
+    
+    if (arrayCards[arrayCards.length - 1].color === "brown") {
+      if (dot2.textContent != 0) {
+        dot2.textContent = dot2.textContent - 1;
+      } else if (dot5.textContent != 0) {
+        dot5.textContent = dot5.textContent - 1;
+      } else if (dot8.textContent != 0) {
+        dot8.textContent = dot8.textContent - 1;
+      }
+    } else if (arrayCards[arrayCards.length - 1].color === "green") {
+      if (dot1.textContent != 0) {
+        dot1.textContent = dot1.textContent - 1;
+      } else if (dot4.textContent != 0) {
+        dot4.textContent = dot4.textContent - 1;
+      } else if (dot7.textContent != 0) {
+        dot7.textContent = dot7.textContent - 1;
+      }
+    } else {
+      if (dot3.textContent != 0) {
+        dot3.textContent = dot3.textContent - 1;
+      } else if (dot6.textContent != 0) {
+        dot6.textContent = dot6.textContent - 1;
+      } else if (dot9.textContent != 0) {
+        dot9.textContent = dot9.textContent - 1;
+      }
+    }
+
+    console.log("Карта: " + arrayCards[arrayCards.length - 1].id + " - " + arrayCards[arrayCards.length - 1].difficulty);
+
+    arrayCards.pop();
+  } else {
+    сardNext.style.backgroundImage = "";
+
+    difficultyLevel = undefined;
+
+    azathoth.classList.remove('active');
+    cthulthu.classList.remove('active');
+    iogSothoth.classList.remove('active');
+    shubNiggurath.classList.remove('active');
+
+    buttonVeryLight.classList.remove("active");
+    buttonLight.classList.remove("active");
+    buttonMedium.classList.remove("active");
+    buttonHigh.classList.remove("active");
+    buttonVeryHigh.classList.remove("active");
+
+    buttonMix.classList.remove("active");
+
+  }
+  
+});
 
 
+console.log(
+    "Score: 105 / 105\n\n",
 
+  " [+20] На выбор предоставляются 4 карты Древних\n",
+  " [+25] На выбор предоставляются 5 уровней сложности\n",
+  " [+40] Карты замешиваются согласно правилам игры\n",
+  " [+20] Есть трекер текущего состояния колоды\n\n",
+
+  "Discord:\n",
+  "Dina#2071\n", "https://discordapp.com/users/981128266633052190\n"
+);
